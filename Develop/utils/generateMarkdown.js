@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
 
   if (license !== 'none') {
-    return `![License](https://img.shields.io/badge/License-${license}-blue.svg)]`
+    return `![License](https://img.shields.io/badge/License-${license}-blue.svg)`
   }
   return ''
 
@@ -13,7 +13,12 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-
+  if (license !== 'none') {
+    return `
+    
+    The license link is [LicenseLink] ${(license)}`
+  }
+  return ''
 
 }
 
@@ -39,6 +44,8 @@ function generateMarkdown(data) {
   ${data.description}
 
   ${renderLicenseSection(data.license)}
+
+  ${renderLicenseLink(data.license)}
 
   ## Languages
   ${data.languages}
